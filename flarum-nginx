@@ -1,3 +1,9 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /home/pengcity/pengcity;
+    index index.php index.htm index.html;
+    server_name _;
     location / { try_files $uri $uri/ /index.php?$query_string; }
     location /api { try_files $uri $uri/ /api.php?$query_string; }
     location /admin { try_files $uri $uri/ /admin.php?$query_string; }
@@ -48,3 +54,4 @@
                text/xml;
     gzip_buffers 16 8k;
     gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+}
